@@ -1,4 +1,4 @@
-import SwaggerConfig from '@ioc:Adonis/Addons/Swagger'
+import { SwaggerConfig } from '@ioc:Adonis/Addons/Swagger'
 
 export default {
   uiEnabled: true, //disable or enable swaggerUi route
@@ -14,7 +14,7 @@ export default {
       info: {
         title: 'Buen comienzo API',
         version: '1.0.0',
-        description: 'API simple de consultas ',
+        description: 'API para consultas ',
       },
       servers: [
         {
@@ -80,16 +80,22 @@ export default {
             },
           },
         },
-        '/detail/headquarters/{id}/participants': {
+        '/entities/{entityId}/headquarters/{headquarterId}/participants': {
           get: {
             tags: ['Get'],
             summary: 'Retorna una lista de sedes!',
             description: 'Esta ruta retorna una lista de sedes ordenadas alfabeticamente.',
             parameters: [
               {
-                name: 'id',
+                name: 'entityId',
                 in: 'path',
-                description: 'ID of id_sede to return',
+                description: 'ID of entity to return',
+                required: 'true',
+              },
+              {
+                name: 'headquarterId',
+                in: 'path',
+                description: 'ID of headquarter to return',
                 required: 'true',
               },
             ],
@@ -110,16 +116,22 @@ export default {
             },
           },
         },
-        '/detail/headquarters/{id}': {
+        '/entities/{entityId}/headquarters/{headquarterId}': {
           get: {
             tags: ['Get'],
             summary: 'Retorna una lista de sedes!',
             description: 'Esta ruta retorna una lista de sedes ordenadas alfabeticamente.',
             parameters: [
               {
-                name: 'id',
+                name: 'entityId',
                 in: 'path',
-                description: 'ID of id_sede to return',
+                description: 'ID of entity to return',
+                required: 'true',
+              },
+              {
+                name: 'headquarterId',
+                in: 'path',
+                description: 'ID of headquarter to return',
                 required: 'true',
               },
             ],
